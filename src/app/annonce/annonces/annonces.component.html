@@ -1,0 +1,44 @@
+
+<app-menu></app-menu>
+<div class="wrapper">
+  <div class="content-heading"> Annonces
+
+    <small><a [routerLink]=" ['/dashboard'] ">Dashboard</a> -> Manage Annonces</small>
+  </div>
+
+ <div class="container">
+        <div class="row" >
+        <div class="gallery col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <h1 class="gallery-title">Annonces {{titre}}</h1>
+
+        </div>
+
+            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe" *ngFor="let Annonce of (Annonces | async) | paginate: { itemsPerPage: 6, currentPage: p }; let i = index ">
+              <div class="panel widget bg-purple-dark">
+      <div class="panel-body bg-success img-responsive" [ngStyle]="{ 'background-image': 'url(' + Annonce.imageURL + ')'}"
+           style=" height: 170px;">
+        <div class="custom-heading">
+          <i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;&nbsp;
+          {{Annonce.date|date :"short"}}
+        </div>
+        <div class="custom-title">{{Annonce.titre}}</div>
+      </div>
+
+      <a class="panel-footer bg-gray-dark bt0 clearfix btn-block">
+
+        <span class="pull-right">
+               <a><em class="fa fa-eye" (click)="ViewAnnonce(Annonce.$key)"></em></a>
+
+           <!--    <a><em class="fa fa-pencil-square-o" (click)="updateAnnonce(Annonce.$key)"></em></a> -->
+
+                 <!--    <a><em class="fa fa-trash" (click)="deleteAnnonce(Annonce.$key)"></em></a> -->
+
+            </span>
+      </a>
+    </div>
+            </div>
+
+        </div>
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+</div>

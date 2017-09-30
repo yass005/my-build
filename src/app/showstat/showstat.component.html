@@ -1,0 +1,53 @@
+<app-menu></app-menu>
+
+<div class="content-heading">Statistic
+  <div class="pull-right">
+  </div>
+  <small><a [routerLink]=" ['/dashboard'] ">Dashboard</a> -> Statistic Categories</small>
+</div>
+
+<div class="row">
+
+
+  <div class="col-md-4">
+                        <div class="panel panel-yellow">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><i class="fa fa-long-arrow-right"></i>  Example Statistique</h3>
+                            </div>
+                            <div class="panel-body">
+                             <canvas baseChart
+                  [data]="doughnutChartData"
+                  [labels]="doughnutChartLabels"
+                  [chartType]="doughnutChartType"
+                  (chartHover)="chartHovered($event)"
+                  (chartClick)="chartClicked($event)"></canvas>
+                            </div>
+                        </div>
+                         </div>
+                <div class="col-md-4">
+                            <div class="panel panel-yellow">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><i class="fa fa-long-arrow-right"></i>  Example Statistique</h3>
+                            </div>
+                            <div class="panel-body">
+               <canvas baseChart
+                [data]="lineChartData"
+                [labels]="lineChartLabels"
+                [chartType]="lineChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
+                            </div>
+                        </div>
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+
+

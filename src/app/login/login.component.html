@@ -1,0 +1,40 @@
+
+
+<div class="container">
+   <div class="row h-100 justify-content-center ">
+    	<div class="col-md-4 col-md-offset-4">
+			  <div class="card card-container">
+          <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+            <p id="profile-name" class="profile-name-card"></p>
+			    	 <form [formGroup]="LoginForm" class="form-validate mb-lg" role="form" name="registerForm" novalidate=""
+                      (submit)="submitForm($event, LoginForm.value)">
+			    	      <div class="form-group has-feedback">
+                        <input class="form-control" id="exampleInputEmail1" type="email" name="email"
+                               placeholder="Adresse e-mail" autocomplete="off" formControlName="email" required=""/>
+                        <span class="text-danger"
+                              *ngIf="LoginForm.controls['email'].hasError('required') && (LoginForm.controls['email'].dirty || LoginForm.controls['email'].touched)">Une adresse e-mail est obligatoire.</span>
+                        <span class="text-danger"
+                              *ngIf="LoginForm.controls['email'].hasError('email') && (LoginForm.controls['email'].dirty || LoginForm.controls['email'].touched)">Entrez une adresse e-mail valide.
+                              </span>
+
+                    </div>
+			               <div class="form-group has-feedback">
+                        <input class="form-control" id="exampleInputPassword1" type="password" name="password"
+                               placeholder="Mot de passe" formControlName="password" required=""/>
+                        <span class="text-danger"
+                              *ngIf="LoginForm.controls['password'].hasError('required') && (LoginForm.controls['password'].dirty || LoginForm.controls['password'].touched)">Un mot de passe est obligatoire. </span>
+                    </div>
+			          <button class="btn btn-block btn-success mt-lg" type="submit" [disabled]="!LoginForm.valid" >Connexion</button>
+            <div class="alert alert-danger" role="alert" *ngIf="error">
+             <strong>Oh snap!</strong> Login Failed!', 'You are Not an ADMIN!
+  Or
+  {{message}}
+</div>
+			      	</form>
+			    </div>
+		</div>
+	</div>
+</div>
+
+
+

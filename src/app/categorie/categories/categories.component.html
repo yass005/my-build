@@ -1,0 +1,48 @@
+
+<app-menu></app-menu>
+
+<div class="content-heading">Categories
+  <div class="pull-right">
+    <label class="file-upload">
+      <a [routerLink]="'/categories/addCategory'">
+        <button class="btn btn-primary"><em class="fa fa-plus"></em>&nbsp;&nbsp; Ajouter une  catégorie</button>
+      </a>
+    </label>
+  </div>
+  <small><a [routerLink]=" ['/dashboard'] ">Dashboard</a> -> Manage Categories</small>
+</div>
+
+<!-- START panel-->
+<div class="panel panel-default">
+  <!-- START table-responsive-->
+  <div class="table-responsive">
+    <table class="table table-bordered table-hover" id="table-ext-1">
+      <thead>
+      <tr>
+        <th class="text-left">Nom </th>
+        <th class="text-left">Modifier</th>
+        <th class="text-left">Supprimer</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr class="text-left" *ngFor="let categorie  of (categoryData | async) | paginate: { itemsPerPage: 6, currentPage: p } ">
+        <td class="text-left">{{categorie.nom}} </td>
+        <td class="text-left">
+          <button class="btn btn-sm btn-info" type="button" (click)="updateCategory(categorie.$key)">
+            <em class="fa fa-pencil-square-o"></em>
+          </button>
+        </td>
+        <td class="text-left">
+          <button class="btn btn-sm btn-danger" type="button" (click)="deleteCategory(categorie.$key)">
+            <em class="fa fa-trash"></em>
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+  </div>
+
+</div>
+

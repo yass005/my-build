@@ -1,0 +1,42 @@
+
+<app-menu></app-menu>
+
+
+<div class="content-heading">Annonces ->
+  <small>
+    <a [routerLink]=" ['/dashboard'] ">Dashboard</a> ->
+     <a [routerLink]=" ['/Annonce/AnnoncesValide'] " *ngIf="valide" >Menu Validation </a>
+     <a [routerLink]=" ['/Annonce/AnnoncesAValider'] " *ngIf="!valide" >Menu Annonces</a>
+  ->  Annonce
+  </small>
+</div>
+
+<div class="container" *ngIf="annonce">
+
+<div class="card" style="width: 30rem;">
+
+    <!--Card image-->
+    <img class="img-fluid" src="{{annonce.imageURL}}"  alt="Card image cap">
+
+    <!--Card content-->
+    <div class="card-body">
+        <!--Title-->
+        <h4 class="card-title">{{annonce.titre}}</h4>
+        <!--Text-->
+        <p class="card-text">{{annonce.description}}</p>
+        <a class="btn btn-primary" (click)="valider()" *ngIf="!valide" >Valider</a>
+         <a class="btn btn-danger" (click)="suprimmer()">Suprimmer</a>
+    </div>
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+

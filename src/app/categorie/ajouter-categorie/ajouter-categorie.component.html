@@ -1,0 +1,35 @@
+<app-menu></app-menu>
+
+<div class="content-heading">Add Categorie
+  <small>
+    <a [routerLink]=" ['/dashboard'] ">Dashboard</a> ->
+    <a [routerLink]=" ['/categories/manageCategories'] ">Manage Categories</a> ->
+    Add Categorie
+  </small>
+</div>
+<!--Header End -->
+<div class="container">
+  <h1 class="display-4">Ajouter une nouvelle catégorie</h1>
+
+<br>
+    <form [formGroup]="Categorie" (ngSubmit)="AddCategorie(f)" #f="ngForm">
+      <div class="form-group">
+        <label>Nom:</label>
+        <input class="form-control" name="name" type="text" required="" placeholder="Nom catégorie "
+               formControlName="title">
+      </div>
+
+      <div class="form-group ">
+        <label>Icon:</label>
+        <input class="form-control" name="Icon" type="text" required="" placeholder=" Icon catégorie"
+               formControlName="icon">
+        <a class="customIconList" href="https://ionicframework.com/docs/v2/ionicons/" target="_blank">*Icon name</a>
+        <span class="help-text">( Choisissez un nom d'icône à partir du lien donné.)</span>
+      </div>
+      <div class="pull-left">
+        <button class="mb-sm btn btn-purple" type="submit" [disabled]="!Categorie.valid">Ajouter</button>
+      </div>
+    </form>
+
+</div>
+

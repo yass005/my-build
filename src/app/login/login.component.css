@@ -1,0 +1,41 @@
+body, html {
+    height: 100%;
+    background-repeat: no-repeat;
+
+}
+
+.card-container.card {
+    max-width: 350px;
+    padding: 40px 40px;
+}
+
+
+/*
+ * Card component
+ */
+
+.profile-img-card {
+    width: 96px;
+    height: 96px;
+    margin: 0 auto 10px;
+    display: block;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+
+/*
+ * Form styles
+ */
+
+
+
+
+
+
+
+
+
+
+
+
